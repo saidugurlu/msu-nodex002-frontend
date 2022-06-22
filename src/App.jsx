@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import './App.scss';
 import { Noun } from './components/Noun';
@@ -145,7 +145,7 @@ function App() {
 					<div className="searchItems">
 						{filteredSearchItems.map((item, i) => {
 							return (
-								<>
+								<React.Fragment key={i}>
 									{item.kind === 'noun' && (
 										<Noun item={item.item} />
 									)}
@@ -170,7 +170,7 @@ function App() {
 									{item.kind === 'landscapePhoto' && (
 										<LandscapePhoto item={item.item} baseUrl={baseUrl} />
 									)}
-								</>
+								</React.Fragment>
 							);
 						})}
 					</div>
